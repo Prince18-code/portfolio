@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ContactForm from "@/components/main/ContactForm";
 
 const github = "https://github.com/Prince18-code";
 const linkedin = "https://linkedin.com/in/prince-shukla341254330";
@@ -14,8 +15,10 @@ function SocialIcon({ type }: { type: "github" | "linkedin" | "mail" | "leetcode
 
 const skillAssets: Record<string, string> = {
   JavaScript: "/js.png", React: "/react.png", "React.js": "/react.png", HTML5: "/html.png", CSS3: "/css.png",
-  "Node.js": "/node-js.png", "Express.js": "/express.png", MongoDB: "/mongodb.png", "Google Gemini API": "/Firebase.png",
-  C: "/c.svg", "C++": "/cpp.svg", GitHub: "/github-skill.svg",
+  "Node.js": "/node-js.png", "Express.js": "/express.png", MongoDB: "/mongodb.png", "Google Gemini API": "/gemini.svg",
+  C: "/c.svg", "C++": "/cpp.svg", GitHub: "/github-skill.svg", Python: "/python.svg", "Python for Data Science": "/python.svg",
+  SQL: "/sql.svg", "Oracle SQL": "/sql.svg", "REST APIs": "/api.svg", "JWT Authentication": "/jwt.svg", DBMS: "/database.svg",
+  Git: "/git.svg", "VS Code": "/vscode.svg", "Data Structures & Algorithms": "/dsa.svg", "Object-Oriented Programming": "/oop.svg",
 };
 
 const skillMarks: Record<string, string> = {
@@ -67,7 +70,7 @@ export default function Home() {
 
     <section id="skills" className="skills-section section-shell">
       <div className="skills-heading"><p className="section-kicker"><span>✧</span> Think better with modern technology</p><h2>Making apps with modern technologies</h2><p>Never miss a task, deadline or idea</p></div>
-      <div className="skills-showcase"><video className="skills-video" autoPlay muted loop playsInline aria-hidden="true"><source src="/cards-video.webm" type="video/webm" /></video><div className="skill-logo-rows">{skillRows.map((row, index) => <div className="skill-logo-row" key={index}>{row.map((item) => <span className="skill-logo" key={item} title={item} aria-label={item}>{skillAssets[item] ? <Image src={skillAssets[item]} alt={item} width={72} height={72}/> : <b>{skillMarks[item] ?? item.slice(0, 2)}</b>}</span>)}</div>)}</div></div>
+      <div className="skills-showcase"><video className="skills-video" autoPlay muted loop playsInline aria-hidden="true"><source src="/cards-video.webm" type="video/webm" /></video><div className="skill-logo-rows">{skillRows.map((row, index) => <div className="skill-logo-row" key={index}>{row.map((item) => <span className="skill-logo" key={item} title={item} aria-label={item}>{skillAssets[item] ? <Image src={skillAssets[item]} alt={item} width={72} height={72}/> : <b>{skillMarks[item] ?? item.slice(0, 2)}</b>}<small>{item}</small></span>)}</div>)}</div></div>
       <p className="security-transition-title">Performance <span>&amp;</span> Security</p>
     </section>
 
@@ -80,6 +83,8 @@ export default function Home() {
       <div className="project-grid">{projects.map((project) => <article className="project-card" key={project.name}><div className={`project-visual ${project.art}`}><div className="project-visual-grid"/><div className="project-visual-orb"/><span className="project-visual-mark">{project.symbol}</span><span className="project-index">{project.n}</span></div><h3>{project.name}</h3><p>{project.desc}</p><div className="project-stack">{project.stack}</div>{project.href && <a className="project-link" href={project.href} target="_blank" rel="noreferrer">View project <span aria-hidden="true">↗</span></a>}</article>)}</div>
     </section>
 
-    <footer className="site-footer"><div className="footer-top"><div className="footer-column"><h3>Community</h3><a href={github} target="_blank" rel="noreferrer">GitHub</a><a href={leetcode} target="_blank" rel="noreferrer">LeetCode</a></div><div className="footer-column"><h3>Social Media</h3><a href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={`mailto:${email}`}>Email</a></div><div className="footer-column"><h3>About</h3><a href="#about">Learning about me</a><a href="#projects">My projects</a></div></div><div className="footer-bottom"><span>© 2026 PRINCE SHUKLA. ALL RIGHTS RESERVED.</span><span>KANPUR, INDIA <i>·</i> MADE WITH CURIOSITY</span><a href="#top">BACK TO TOP ↑</a></div></footer>
+    <ContactForm />
+
+    <footer className="site-footer"><div className="footer-top"><div className="footer-column"><h3>Community</h3><a href={github} target="_blank" rel="noreferrer">GitHub</a><a href={leetcode} target="_blank" rel="noreferrer">LeetCode</a></div><div className="footer-column"><h3>Social Media</h3><a href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={`mailto:${email}`}>Email</a></div><div className="footer-column"><h3>About</h3><a href="#about">Learning about me</a><a href="#projects">My projects</a><a href="#contact">Contact me</a></div></div><div className="footer-bottom"><span>© 2026 PRINCE SHUKLA. ALL RIGHTS RESERVED.</span><span>KANPUR, INDIA <i>·</i> MADE WITH CURIOSITY</span><a href="#top">BACK TO TOP ↑</a></div></footer>
   </main>;
 }

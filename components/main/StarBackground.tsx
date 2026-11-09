@@ -50,8 +50,8 @@ export default function StarBackground() {
 
     const draw = (time: number) => {
       context.clearRect(0, 0, width, height);
-      const angleX = reduceMotion ? 0 : time * 0.001 / 10;
-      const angleY = reduceMotion ? 0 : time * 0.001 / 15;
+      const angleX = reduceMotion ? 0 : time * 0.00014;
+      const angleY = reduceMotion ? 0 : time * 0.00009;
       const cosX = Math.cos(angleX);
       const sinX = Math.sin(angleX);
       const cosY = Math.cos(angleY);

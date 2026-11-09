@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import StarBackground from "@/components/main/StarBackground";
+import SmoothWheelScroll from "@/components/main/SmoothWheelScroll";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,5 +15,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
-  return <html lang="en"><body><StarBackground />{children}</body></html>;
+  return <html lang="en"><body><StarBackground /><SmoothWheelScroll />{children}</body></html>;
 }
